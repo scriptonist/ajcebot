@@ -27,8 +27,8 @@ var intents=new builder.IntentDialog({recognizers:[recognizer]});
 
 var con = mysql.createConnection({
   host: "139.59.43.156",
-  user: "root",
-  password: "ajcebot",
+  user: "ajcebot",
+  password: "Ajcebot123@",
   database: "ajcebot"
 });
 
