@@ -2606,26 +2606,13 @@ intents.matches('hostel', [
 });
         }
         
-        else if(/mca|com.*app/i.test(session.message.text)){
-                        
-                  con.query('SELECT f3 FROM college where inten= \'fee\'',function(err,res){
-  if(err) throw err;
-    
-  session.send(res[0].f3);
-                      
-        
-});
-        }
-        
         
         else {
                         
-                  con.query('SELECT f1,f2,f3 FROM college where inten= \'fee\'',function(err,res){
+                  con.query('SELECT f1 FROM college where inten= \'hostel\'',function(err,res){
   if(err) throw err;
     
-  session.send(res[0].f1);
-    session.send(res[0].f2);
-    session.send(res[0].f3);                  
+  session.send(res[0].f1);                  
                   
                       
         
@@ -2690,6 +2677,16 @@ intents.matches('greet', [
         }
         
        
+     
+    }    
+]);
+
+intents.matches('welcome', [
+    function (session) {
+                          
+  session.send("Hi! I'm Ambot. What can I do for you?");
+                      
+        
      
     }    
 ]);
