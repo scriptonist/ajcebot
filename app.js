@@ -28,7 +28,7 @@ var intents=new builder.IntentDialog({recognizers:[recognizer]});
 var con = mysql.createConnection({
   host: "sql12.freemysqlhosting.net",
   user: "sql12169643",
-  password: "qjMPdBJbgW",
+  password: "1vIIS4tapU",
   database: "sql12169643"
 });
 
