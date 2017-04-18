@@ -36,7 +36,6 @@ var con = mysql.createConnection({
 var ab,ba;
 
 
-
 bot.dialog('/',intents);
 
 
@@ -513,6 +512,17 @@ intents.matches('branch', [
 
                     });
                 }
+          
+                else if(/add|extra/i.test(session.message.text)){
+                        
+                        con.query('SELECT f4 FROM college where inten= \'courses\'',function(err,res){
+                            if(err) throw err;
+    
+                            session.send(res[0].f4);
+                      
+        
+                    });
+                }
 
                 else{
                         con.query('SELECT f5,f6,f7 FROM college where inten= \'courses\'',function(err,res){
@@ -790,6 +800,32 @@ intents.matches('cs', [
 });
         }
         
+        else if(/cont|ph|mob|mail/i.test(session.message.text)){
+                        
+                  con.query('SELECT f2 FROM college where inten= \'cs\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f2);
+                      
+        
+});
+        }
+        
+        else if(/locat|where/i.test(session.message.text)){
+                        
+                  con.query('SELECT f7 FROM college where inten= \'cs\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f7);
+                      ab='http://www.ajce.in/wp-content/uploads/2015/05/campus_plan_amal_jyothi.jpg';
+                      ba='http://www.ajce.in/campus-plan/';
+                      
+                       session.send(new builder.Message(session).addAttachment(createHeroCard(session))); 
+                      
+        
+});
+        }
+        
         
         else {
                         
@@ -895,6 +931,30 @@ intents.matches('auto', [
 });
         }
         
+        else if(/cont|ph|mob|mail/i.test(session.message.text)){
+                        
+                  con.query('SELECT f2 FROM college where inten= \'auto\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f2);
+                      
+        
+});
+        }
+        
+        else if(/locat|where/i.test(session.message.text)){
+                        
+                  con.query('SELECT f7 FROM college where inten= \'auto\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f7);
+                      ab='http://www.ajce.in/wp-content/uploads/2015/05/campus_plan_amal_jyothi.jpg';
+                      ba='http://www.ajce.in/campus-plan/';
+                      
+                       session.send(new builder.Message(session).addAttachment(createHeroCard(session))); 
+        
+});
+        }
         
         else {
                         
@@ -998,6 +1058,30 @@ intents.matches('chem', [
 });
         }
         
+        else if(/cont|ph|mob|mail/i.test(session.message.text)){
+                        
+                  con.query('SELECT f2 FROM college where inten= \'chemical\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f2);
+                      
+        
+});
+        }
+        
+        else if(/locat|where/i.test(session.message.text)){
+                        
+                  con.query('SELECT f7 FROM college where inten= \'chemical\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f7);
+                      ab='http://www.ajce.in/wp-content/uploads/2015/05/campus_plan_amal_jyothi.jpg';
+                      ba='http://www.ajce.in/campus-plan/';
+                      
+                       session.send(new builder.Message(session).addAttachment(createHeroCard(session))); 
+        
+});
+        }
         
         else {
                         
@@ -1100,6 +1184,30 @@ intents.matches('civil', [
 });
         }
         
+        else if(/cont|ph|mob|mail/i.test(session.message.text)){
+                        
+                  con.query('SELECT f2 FROM college where inten= \'civil\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f2);
+                      
+        
+});
+        }
+        
+        else if(/locat|where/i.test(session.message.text)){
+                        
+                  con.query('SELECT f7 FROM college where inten= \'civil\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f7);
+                      
+        ab='http://www.ajce.in/wp-content/uploads/2015/05/campus_plan_amal_jyothi.jpg';
+                      ba='http://www.ajce.in/campus-plan/';
+                      
+                       session.send(new builder.Message(session).addAttachment(createHeroCard(session))); 
+});
+        }
         
         else {
                         
@@ -1202,6 +1310,30 @@ intents.matches('ec', [
 });
         }
         
+        else if(/cont|ph|mob|mail/i.test(session.message.text)){
+                        
+                  con.query('SELECT f2 FROM college where inten= \'ec\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f2);
+                      
+        
+});
+        }
+        
+        else if(/locat|where/i.test(session.message.text)){
+                        
+                  con.query('SELECT f7 FROM college where inten= \'ec\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f7);
+                      ab='http://www.ajce.in/wp-content/uploads/2015/05/campus_plan_amal_jyothi.jpg';
+                      ba='http://www.ajce.in/campus-plan/';
+                      
+                       session.send(new builder.Message(session).addAttachment(createHeroCard(session))); 
+        
+});
+        }
         
         else {
                         
@@ -1304,6 +1436,30 @@ intents.matches('eee', [
 });
         }
         
+        else if(/cont|ph|mob|mail/i.test(session.message.text)){
+                        
+                  con.query('SELECT f2 FROM college where inten= \'eee\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f2);
+                      
+        
+});
+        }
+        
+        else if(/locat|where/i.test(session.message.text)){
+                        
+                  con.query('SELECT f7 FROM college where inten= \'eee\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f7);
+                      ab='http://www.ajce.in/wp-content/uploads/2015/05/campus_plan_amal_jyothi.jpg';
+                      ba='http://www.ajce.in/campus-plan/';
+                      
+                       session.send(new builder.Message(session).addAttachment(createHeroCard(session))); 
+        
+});
+        }
         
         else {
                         
@@ -1406,6 +1562,30 @@ intents.matches('it', [
 });
         }
         
+        else if(/cont|ph|mob|mail/i.test(session.message.text)){
+                        
+                  con.query('SELECT f2 FROM college where inten= \'it\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f2);
+                      
+        
+});
+        }
+        
+        else if(/locat|where/i.test(session.message.text)){
+                        
+                  con.query('SELECT f7 FROM college where inten= \'it\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f7);
+                      ab='http://www.ajce.in/wp-content/uploads/2015/05/campus_plan_amal_jyothi.jpg';
+                      ba='http://www.ajce.in/campus-plan/';
+                      
+                       session.send(new builder.Message(session).addAttachment(createHeroCard(session))); 
+        
+});
+        }
         
         else {
                         
@@ -1508,6 +1688,30 @@ intents.matches('mca', [
 });
         }
         
+        else if(/cont|ph|mob|mail/i.test(session.message.text)){
+                        
+                  con.query('SELECT f2 FROM college where inten= \'mca\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f2);
+                      
+        
+});
+        }
+        
+        else if(/locat|where/i.test(session.message.text)){
+                        
+                  con.query('SELECT f7 FROM college where inten= \'mca\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f7);
+                      ab='http://www.ajce.in/wp-content/uploads/2015/05/campus_plan_amal_jyothi.jpg';
+                      ba='http://www.ajce.in/campus-plan/';
+                      
+                       session.send(new builder.Message(session).addAttachment(createHeroCard(session))); 
+        
+});
+        }
         
         else {
                         
@@ -1610,6 +1814,30 @@ intents.matches('mech', [
 });
         }
         
+        else if(/cont|ph|mob|mail/i.test(session.message.text)){
+                        
+                  con.query('SELECT f2 FROM college where inten= \'mech\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f2);
+                      
+        
+});
+        }
+        
+        else if(/locat|where/i.test(session.message.text)){
+                        
+                  con.query('SELECT f7 FROM college where inten= \'mech\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f7);
+                      ab='http://www.ajce.in/wp-content/uploads/2015/05/campus_plan_amal_jyothi.jpg';
+                      ba='http://www.ajce.in/campus-plan/';
+                      
+                       session.send(new builder.Message(session).addAttachment(createHeroCard(session))); 
+        
+});
+        }
         
         else {
                         
@@ -1712,6 +1940,30 @@ intents.matches('met', [
 });
         }
         
+        else if(/cont|ph|mob|mail/i.test(session.message.text)){
+                        
+                  con.query('SELECT f2 FROM college where inten= \'metallurgy\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f2);
+                      
+        
+});
+        }
+        
+        else if(/locat|where/i.test(session.message.text)){
+                        
+                  con.query('SELECT f7 FROM college where inten= \'metallurgy\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f7);
+                      ab='http://www.ajce.in/wp-content/uploads/2015/05/campus_plan_amal_jyothi.jpg';
+                      ba='http://www.ajce.in/campus-plan/';
+                      
+                       session.send(new builder.Message(session).addAttachment(createHeroCard(session))); 
+        
+});
+        }
         
         else {
                         
@@ -2194,6 +2446,141 @@ intents.matches('fee', [
     }    
 ]);
 
+
+intents.matches('hod',[
+    function (session){
+        builder.Prompts.text(session, 'Which branch do you prefer to know?');
+    },
+    function (session,results){
+    
+         if(/cs|computer/i.test(results.response)){
+                        
+                  con.query('SELECT f1 FROM college where inten= \'cs\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f1);
+                      
+        
+});
+        }
+        
+        
+        else if(/auto|ae/i.test(results.response)){
+                        
+                  con.query('SELECT f1 FROM college where inten= \'auto\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f1);
+                      
+        
+});
+        }
+        else if(/chem/i.test(results.response)){
+                        
+                  con.query('SELECT f1 FROM college where inten= \'chemical\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f1);
+                      
+        
+});
+        }
+        
+        
+        else if(/civil/i.test(results.response)){
+                        
+                  con.query('SELECT f1 FROM college where inten= \'civil\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f1);
+                      
+        
+});
+        }
+        
+        
+        else if(/ec|electronics/i.test(results.response)){
+                        
+                  con.query('SELECT f1 FROM college where inten= \'ec\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f1);
+                      
+        
+});
+        }
+        
+        
+        else if(/eee|electrical/i.test(results.response)){
+                        
+                  con.query('SELECT f1 FROM college where inten= \'eee\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f1);
+                      
+        
+});
+        }
+        
+        
+        else if(/it/i.test(results.response)){
+                        
+                  con.query('SELECT f1 FROM college where inten= \'it\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f1);
+                      
+        
+});
+        }
+        
+        
+        
+        else if(/mca|appli/i.test(results.response)){
+                        
+                  con.query('SELECT f1 FROM college where inten= \'mca\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f1);
+                      
+        
+});
+        }
+        
+        
+        
+        else if(/mech/i.test(results.response)){
+                        
+                  con.query('SELECT f1 FROM college where inten= \'mech\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f1);
+                      
+        
+});
+        }
+        
+        
+        
+        else if(/mt|met/i.test(results.response)){
+                        
+                  con.query('SELECT f1 FROM college where inten= \'metallurgy\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f1);
+                      
+        
+});
+        }
+        
+        
+        
+    }
+
+]);
+
+
+
 intents.matches('hostel', [
     function (session) {
                       
@@ -2271,11 +2658,22 @@ intents.matches('activity', [
 ]);
 */
 
+intents.matches('None', [
+    function (session) {
+                      
+                 
+  session.send("Sorry. I didn't get you. Could you ask me more clearly or something else please?");
+                      
+
+     
+    }    
+]);
+
 intents.matches('greet', [
     function (session) {
                       
                         
-          if(/good|great|awsom|nice|cool|ok/i.test(session.message.text)){
+          if(/good|great|awsom|nice|cool|ok|k/i.test(session.message.text)){
                         
                   ab='data:image/jpeg;base64,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';   
               ba='';
@@ -2295,5 +2693,3 @@ intents.matches('greet', [
      
     }    
 ]);
-
-
