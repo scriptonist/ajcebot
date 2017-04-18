@@ -26,10 +26,10 @@ var intents=new builder.IntentDialog({recognizers:[recognizer]});
 
 
 var con = mysql.createConnection({
-  host: "139.59.43.156",
-  user: "ajcebot",
-  password: "Ajcebot123@",
-  database: "ajcebot"
+  host: "sql12.freemysqlhosting.net",
+  user: "sql12169643",
+  password: "qjMPdBJbgW",
+  database: "sql12169643"
 });
 
 
