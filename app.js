@@ -19,7 +19,7 @@ var connector = new builder.ChatConnector({
 var bot = new builder.UniversalBot(connector);
 server.post('/api/messages', connector.listen());
 //var intents = new builder.IntentDialog();
-var model='https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/fb96e281-ac80-4feb-be5d-8f848c428069?subscription-key=c958236acb4848959cbea93d74973a03&timezoneOffset=0.0&verbose=true&spellCheck=true&q=';
+var model='https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/a0d2bd4e-c99a-4632-97c8-77c15d1ade38?subscription-key=c958236acb4848959cbea93d74973a03&timezoneOffset=0.0&verbose=true&spellCheck=true&q=';
 var recognizer = new builder.LuisRecognizer(model);
 var intents=new builder.IntentDialog({recognizers:[recognizer]});
 
@@ -48,7 +48,7 @@ function createHeroCard(session) {
             builder.CardImage.create(session, ab)
         ])
         .buttons([
-            builder.CardAction.openUrl(session, ba, 'know more')
+            builder.CardAction.openUrl(session, ba, x)
         ])
     
     ;
@@ -57,6 +57,7 @@ function createHeroCard(session) {
 
    intents.matches('about', [
     function (session) {
+        x='know more';
     if(/area|extent|dimen|acre|square/i.test(session.message.text)){
                         
                   con.query('SELECT f3 FROM college where inten= \'about\'',function(err,res){
@@ -134,6 +135,7 @@ function createHeroCard(session) {
 
    intents.matches('location', [
     function (session) {
+        x='know more';
                      
                           
     if(/cs|computer/i.test(session.message.text)){
@@ -316,7 +318,7 @@ session.send(res[0].f2);
 
 intents.matches('placement', [
     function (session) {
-                     
+                     x='know more';
                         
     if(/cs|computer/i.test(session.message.text)){
                         
@@ -460,7 +462,7 @@ intents.matches('placement', [
 
 intents.matches('branch', [
     function (session) {
-                      
+                      x='know more';
                         
       if(/course/i.test(session.message.text)){
                         
@@ -672,7 +674,7 @@ intents.matches('branch', [
 
 intents.matches('bursar', [
     function (session) {
-                      
+                      x='know more';
      if(/cont|ph|mob|mail/i.test(session.message.text)){
                         
                   con.query('SELECT f2 FROM college where inten= \'bursar\'',function(err,res){
@@ -713,12 +715,60 @@ intents.matches('bursar', [
 
 
 
+intents.matches('total', [
+    function (session) {
+                      x='know more';
+     if(/hod|head/i.test(session.message.text)){
+                        
+                  con.query('SELECT f7 FROM college where inten= \'about\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f7);
+                      
+        
+});
+        }
+        
+        
+        else if(/student/i.test(session.message.text)){
+                        
+                  con.query('SELECT f8 FROM college where inten= \'about\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f8);
+                      
+        
+});
+        }
+        
+        else if(/facul|staf/i.test(session.message.text)){
+                con.query('SELECT f9 FROM college where inten= \'about\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f9);
+                     ab='http://www.ajce.in/wp-content/uploads/2017/02/staff_page_header.png';
+                      ba='http://www.ajce.in/faculty/';
+                       session.send(new builder.Message(session).addAttachment(createHeroCard(session))); 
+                      
+        
+});
+            
+        }
+        
+        else{
+            
+            session.send("Sorry. I didn't get you. Could you ask me more clearly or something else please?");
+        }
+        
+     
+    }    
+]);
 
 
 
 intents.matches('cs', [
     function (session) {
-                      
+                      x='know more';
                         
     
         if(/hod|head|dept.*head|manoj/i.test(session.message.text)){ 
@@ -852,7 +902,7 @@ session.send(res[0].f8);
 
 intents.matches('auto', [
     function (session) {
-                      
+                      x='know more';
                         
     
         if(/hod|head|dept.*head|vijayan/i.test(session.message.text)){
@@ -979,7 +1029,7 @@ session.send(res[0].f8);
 
 intents.matches('chem', [
     function (session) {
-                      
+                      x='know more';
                         
     
         if(/hod|head|dept.*head|sasi|shasi|sashi|shashi/i.test(session.message.text)){
@@ -1105,7 +1155,7 @@ session.send(res[0].f8);
 
 intents.matches('civil', [
     function (session) {
-                      
+                      x='know more';
                         
     
         if(/hod|head|dept.*head|clara|rosary/i.test(session.message.text)){
@@ -1231,7 +1281,7 @@ session.send(res[0].f8);
 
 intents.matches('ec', [
     function (session) {
-                      
+                      x='know more';
                         
     
         if(/hod|head|dept.*head|satheesh/i.test(session.message.text)){
@@ -1357,10 +1407,10 @@ session.send(res[0].f8);
 
 intents.matches('eee', [
     function (session) {
-                      
+                      x='know more';
                         
     
-        if(/hod|head|dept.*head|thomas|/i.test(session.message.text)){
+        if(/hod|head|dept.*head|thomas/i.test(session.message.text)){
                         
            
             if(/cont|ph|mob|mail/i.test(session.message.text)){
@@ -1483,7 +1533,7 @@ session.send(res[0].f8);
 
 intents.matches('it', [
     function (session) {
-                      
+                      x='know more';
                         
     
         if(/hod|head|dept.*head|sandhya|ramakrishnan/i.test(session.message.text)){
@@ -1609,7 +1659,7 @@ session.send(res[0].f8);
 
 intents.matches('mca', [
     function (session) {
-                      
+                      x='know more';
                         
     
         if(/hod|head|dept.*head|rubin|ruban|thottupuram/i.test(session.message.text)){
@@ -1735,7 +1785,7 @@ session.send(res[0].f8);
 
 intents.matches('mech', [
     function (session) {
-                      
+                      x='know more';
                         
     
         if(/hod|head|dept.*head|sreekumar/i.test(session.message.text)){
@@ -1861,7 +1911,7 @@ session.send(res[0].f8);
 
 intents.matches('met', [
     function (session) {
-                      
+                      x='know more';
                         
     
         if(/hod|head|dept.*head|samuel/i.test(session.message.text)){
@@ -1989,7 +2039,7 @@ session.send(res[0].f8);
 
 intents.matches('principal', [
     function (session) {
-                      
+                      x='know more';
         
         if(/cont|ph|mob|mail/i.test(session.message.text)){
                         
@@ -2059,7 +2109,7 @@ intents.matches('principal', [
 
 intents.matches('fest', [
     function (session) {
-        
+        x='know more';
         
         if(/arena|basket/i.test(session.message.text)){
                         
@@ -2103,7 +2153,7 @@ intents.matches('fest', [
 
 intents.matches('manager', [
     function (session) {
-                      
+                      x='know more';
                         
                   if(/cont|ph|mob|mail/i.test(session.message.text)){
                         
@@ -2149,7 +2199,7 @@ intents.matches('manager', [
 
 intents.matches('dean', [
     function (session) {
-                      
+                      x='know more';
                         
                   if(/acad|cher/i.test(session.message.text)){
                         
@@ -2210,7 +2260,7 @@ intents.matches('dean', [
 
 intents.matches('staff', [
     function (session) {
-                      
+                      x='know more';
                if(/cs|computer/i.test(session.message.text)){
                         
                   con.query('SELECT f5 FROM college where inten= \'cs\'',function(err,res){
@@ -2334,12 +2384,16 @@ intents.matches('staff', [
         
         
         else {
-                        //LINK
-                  
-             ab='http://www.ajce.in/wp-content/uploads/2017/02/staff_page_header.png';
+               con.query('SELECT f9 FROM college where inten= \'about\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f9);
+                     ab='http://www.ajce.in/wp-content/uploads/2017/02/staff_page_header.png';
                       ba='http://www.ajce.in/faculty/';
-                       session.send(new builder.Message(session).addAttachment(createHeroCard(session)));  
-                  
+                       session.send(new builder.Message(session).addAttachment(createHeroCard(session))); 
+                      
+        
+});
             
         }
      
@@ -2349,7 +2403,7 @@ intents.matches('staff', [
 
 intents.matches('fee', [
     function (session) {
-                      
+                      x='know more';
                         
     
         if(/host/i.test(session.message.text)){
@@ -2449,6 +2503,7 @@ intents.matches('fee', [
 
 intents.matches('hod',[
     function (session){
+        x='know more';
         builder.Prompts.text(session, 'Which branch do you prefer to know?');
     },
     function (session,results){
@@ -2573,6 +2628,10 @@ intents.matches('hod',[
 });
         }
         
+        else{
+            session.send("Sorry. Couldn't get you!!!");
+        }
+        
         
         
     }
@@ -2583,7 +2642,7 @@ intents.matches('hod',[
 
 intents.matches('hostel', [
     function (session) {
-                      
+                    x='know more';  
         if(/location|address|visit|meet/i.test(session.message.text)){
                         
                   con.query('SELECT f5 FROM college where inten= \'hostel\'',function(err,res){
@@ -2606,13 +2665,26 @@ intents.matches('hostel', [
 });
         }
         
+        else if(/mca|com.*app/i.test(session.message.text)){
+                        
+                  con.query('SELECT f3 FROM college where inten= \'fee\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f3);
+                      
+        
+});
+        }
+        
         
         else {
                         
-                  con.query('SELECT f1 FROM college where inten= \'hostel\'',function(err,res){
+                  con.query('SELECT f1,f2,f3 FROM college where inten= \'fee\'',function(err,res){
   if(err) throw err;
     
-  session.send(res[0].f1);                  
+  session.send(res[0].f1);
+    session.send(res[0].f2);
+    session.send(res[0].f3);                  
                   
                       
         
@@ -2626,6 +2698,70 @@ intents.matches('hostel', [
 ]);
 
 
+
+intents.matches('former', [
+    function (session) {
+                    x='know more';  
+                        
+                  if(/princ/i.test(session.message.text)){
+                        
+                  con.query('SELECT f5 FROM college where inten= \'principal\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f5);
+                      
+        
+});
+        }
+        
+        
+        else if(/manager/i.test(session.message.text)){
+                        
+                  con.query('SELECT f5 FROM college where inten= \'manager\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f5);
+                      
+        
+});
+        }
+        
+        
+        else{
+                con.query('SELECT f5 FROM college where inten= \'principal\'',function(err,res){
+  if(err) throw err;
+    
+        session.send(res[0].f5);
+});
+            con.query('SELECT f5 FROM college where inten= \'manager\'',function(err,res){
+  if(err) throw err;
+    
+        session.send(res[0].f5);
+});
+            
+        }
+        
+        
+      
+     
+    }    
+]);
+
+
+intents.matches('director', [
+    function (session) {
+                      
+                        
+                  con.query('SELECT f1 FROM college where inten= \'director\'',function(err,res){
+  if(err) throw err;
+    
+  session.send(res[0].f1);
+                      
+        
+});
+     
+    }    
+]);
 
 /*
 
@@ -2647,7 +2783,7 @@ intents.matches('activity', [
 
 intents.matches('None', [
     function (session) {
-                      
+                     x='know more'; 
                  
   session.send("Sorry. I didn't get you. Could you ask me more clearly or something else please?");
                       
@@ -2656,9 +2792,11 @@ intents.matches('None', [
     }    
 ]);
 
+intents.onDefault(builder.DialogAction.send("Sorry. I didn't get you. Could you ask me more clearly or something else please?"));
+
 intents.matches('greet', [
     function (session) {
-                      
+                      x=' ';
                         
           if(/good|great|awsom|nice|cool|ok|k/i.test(session.message.text)){
                         
